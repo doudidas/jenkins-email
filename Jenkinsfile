@@ -4,7 +4,10 @@ pipeline {
     stage('Get input') {
       steps {
         script {
-          def CENTOS_NAME = input message: 'Give Centos Name', ok: 'Next'
+          def vm = input(id: 'userInput',message: 'give VM Names',
+          parameters: [
+            string(defaultValue: 'None', description: 'centos', name: 'centos')
+          ])
         }
 
       }
@@ -13,7 +16,7 @@ pipeline {
     stage('show input') {
       steps {
         script {
-          echo "Selected machine: ${CENTOS_NAME}"
+          echo "Selected machine: ${vm.centos}"
         }
 
       }

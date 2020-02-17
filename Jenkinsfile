@@ -15,7 +15,7 @@ pipeline {
 
     stage('show input') {
       steps {
-        echo 'Selected machine: ${vm.centos}'
+        sh '''echo Selected machine: ${vm.centos}'''
       }
     }
 

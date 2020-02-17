@@ -8,6 +8,7 @@ pipeline {
           parameters: [
             string(defaultValue: 'None', description: 'centos', name: 'centos')
           ])
+          def centos = vm.centos
         }
 
       }
@@ -15,7 +16,7 @@ pipeline {
 
     stage('show input') {
       steps {
-        sh 'echo Selected machine: ${env.vm.centos}'
+        sh 'echo Selected machine: ${centos}'
       }
     }
 
